@@ -12,8 +12,8 @@ from langchain.prompts import PromptTemplate
 from dotenv import load_dotenv
 
 load_dotenv()
-os.getenv("AIzaSyBDNn-AusQsmFU5pvkRiDC08vyYAuLyemc")
-genai.configure(api_key=os.getenv("AIzaSyBDNn-AusQsmFU5pvkRiDC08vyYAuLyemc"))
+os.getenv("Your_Google_api_key")
+genai.configure(api_key=os.getenv("Your_Google_api_key"))
 
 def get_pdf_text(pdfs):
     text = ""
@@ -31,7 +31,7 @@ def get_text_chunks(text):
 
 
 def get_vector_store(text_chunks):
-    embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001",google_api_key="AIzaSyBDNn-AusQsmFU5pvkRiDC08vyYAuLyemc")
+    embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001",google_api_key="Your_Google_api_key")
     vector_store = FAISS.from_texts(text_chunks, embedding=embeddings)
     vector_store.save_local("faiss_index")
 
