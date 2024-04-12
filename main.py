@@ -52,7 +52,7 @@ def get_conversational_chain():
     return chain
 
 def user_input(question):
-    GOOGLE_API_KEY = "AIzaSyAN2gnyYJaU0dZ7_xr89rWaSFpN5i023bA"
+    GOOGLE_API_KEY = "Your_Google_API"
     embeddings=GoogleGenerativeAIEmbeddings(model="models/embedding-001",google_api_key=GOOGLE_API_KEY)
 
     new_db=FAISS.load_local("faiss_index",embeddings,allow_dangerous_deserialization=True)
